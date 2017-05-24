@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frends.Directory", "Frends.Directory\Frends.Directory.csproj", "{796F975D-A8B7-4837-ADE7-223CFDCC3715}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frends.Directory.Tests", "Frends.Directory.Tests\Frends.Directory.Tests.csproj", "{7D3BF706-C047-47D7-A91E-767E49AFBD2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49901072-9F2E-40F7-AAF2-199701DAFABB}"
+	ProjectSection(SolutionItems) = preProject
+		nuspec\Frends.Directory.nuspec = nuspec\Frends.Directory.nuspec
+		Frends.Directory\FrendsTaskMetadata.json = Frends.Directory\FrendsTaskMetadata.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{796F975D-A8B7-4837-ADE7-223CFDCC3715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796F975D-A8B7-4837-ADE7-223CFDCC3715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796F975D-A8B7-4837-ADE7-223CFDCC3715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796F975D-A8B7-4837-ADE7-223CFDCC3715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D3BF706-C047-47D7-A91E-767E49AFBD2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3BF706-C047-47D7-A91E-767E49AFBD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3BF706-C047-47D7-A91E-767E49AFBD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3BF706-C047-47D7-A91E-767E49AFBD2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

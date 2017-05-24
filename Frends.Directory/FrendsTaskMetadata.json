@@ -1,0 +1,11 @@
+﻿{
+  "Tasks": [
+    {
+      "TaskMethod": "Frends.Directory.Directory.Delete"
+    },{
+      "TaskMethod": "Frends.Directory.Directory.Move"
+    },{
+      "TaskMethod": "Frends.Directory.Directory.Create"
+    }
+  ]
+}
