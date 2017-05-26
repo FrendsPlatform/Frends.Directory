@@ -14,7 +14,7 @@ namespace Frends.Directory
     public class Directory
     {
         /// <summary>
-        /// Delete a directory. This task will by default throw if the directory is not empty. If the directory is not found, an empty result is returned. See https://bitbucket.org/hiqfinland/frends.directory
+        /// Delete a directory. This task will by default throw if the directory is not empty. If the directory is not found, an empty result is returned. See https://github.com/FrendsPlatform/Frends.Directory
         /// </summary>
         /// <returns>Object { string Path, bool DirectoryNotFound } </returns>
         public static DeleteResult Delete([CustomDisplay(DisplayOption.Tab)] SharedInput input, [CustomDisplay(DisplayOption.Tab)] DeleteOptions options)
@@ -32,7 +32,7 @@ namespace Frends.Directory
         }
 
         /// <summary>
-        /// Creates all directories and subdirectories in the specified path unless they already exist. Will not do anything if the directory exists. See https://bitbucket.org/hiqfinland/frends.directory
+        /// Creates all directories and subdirectories in the specified path unless they already exist. Will not do anything if the directory exists. See https://github.com/FrendsPlatform/Frends.Directory
         /// </summary>
         /// <returns>Object { string Path } </returns>
         public static CreateResult Create([CustomDisplay(DisplayOption.Tab)] SharedInput input, [CustomDisplay(DisplayOption.Tab)] CreateOptions options)
@@ -50,7 +50,7 @@ namespace Frends.Directory
         }
 
         /// <summary>
-        /// Moves a directory. By default will throw an error if the directory already exists. See https://bitbucket.org/hiqfinland/frends.directory
+        /// Moves a directory. By default will throw an error if the directory already exists. See https://github.com/FrendsPlatform/Frends.Directory
         /// </summary>
         /// <returns>Object { string TargetDirectory, string SourceDirectory }</returns>
         public static MoveResult Move([CustomDisplay(DisplayOption.Tab)] MoveInput input, [CustomDisplay(DisplayOption.Tab)] MoveOptions options)
