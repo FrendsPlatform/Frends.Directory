@@ -1,20 +1,11 @@
-- [Frends.Directory](#frends.directory)
+- [Frends.Directory](#frendsdirectory)
    - [Installing](#installing)
    - [Building](#building)
    - [Contributing](#contributing)
    - [Documentation](#documentation)
-     - [Directory.Create](#directory.create)
-       - [Input](#input)
-       - [Options](#options)
-       - [Result](#result)
-     - [Directory.Move](#directory.move)
-       - [Input](#input)
-       - [Options](#options)
-       - [Result](#result)
-     - [Directory.Delete](#directory.delete)
-       - [Input](#input)
-       - [Options](#options)
-       - [Result](#result)
+     - [Directory.Create](#directorycreate)
+     - [Directory.Move](#directorymove)
+     - [Directory.Delete](#directorydelete) 
    - [License](#license)
 
 # Frends.Directory
@@ -25,7 +16,6 @@ You can install the task via FRENDS UI Task view or you can find the nuget packa
 `https://www.myget.org/F/frends/api/v2`
 
 ## Building
-Ensure that you have `https://www.myget.org/F/frends/api/v2` added to your nuget feeds
 
 Clone a copy of the repo
 

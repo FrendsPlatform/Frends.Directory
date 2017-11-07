@@ -10,7 +10,6 @@
     <description>FRENDS Directory tasks</description>
     <summary />
     <dependencies>
-	  <dependency id="Frends.Tasks.Attributes" version="1.2.0" />
       <dependency id="SimpleImpersonation" version="2.0.1" />
     </dependencies>
     <frameworkAssemblies>
@@ -19,7 +18,7 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-	<file src="Frends.Directory\bin\Release\Frends.Directory.dll" target="lib\net452\Frends.Directory.dll" />	
+    <file src="Frends.Directory\bin\Release\Frends.Directory.dll" target="lib\net452\Frends.Directory.dll" />
     <file src="Frends.Directory\bin\Release\Frends.Directory.XML" target="Frends.Directory.XML"/>
     <file src="Frends.Directory\FrendsTaskMetadata.json" target="FrendsTaskMetadata.json"/>
   </files>
