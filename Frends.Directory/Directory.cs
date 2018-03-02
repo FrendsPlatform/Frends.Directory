@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Frends.Tasks.Attributes;
+using System.ComponentModel;
 using SimpleImpersonation;
 #pragma warning disable 1591
 
@@ -17,7 +11,7 @@ namespace Frends.Directory
         /// Delete a directory. This task will by default throw if the directory is not empty. If the directory is not found, an empty result is returned. See https://github.com/FrendsPlatform/Frends.Directory
         /// </summary>
         /// <returns>Object { string Path, bool DirectoryNotFound } </returns>
-        public static DeleteResult Delete([CustomDisplay(DisplayOption.Tab)] SharedInput input, [CustomDisplay(DisplayOption.Tab)] DeleteOptions options)
+        public static DeleteResult Delete([PropertyTab] SharedInput input, [PropertyTab] DeleteOptions options)
         {
             if (!options.UseGivenUserCredentialsForRemoteConnections)
             {
@@ -35,7 +29,7 @@ namespace Frends.Directory
         /// Creates all directories and subdirectories in the specified path unless they already exist. Will not do anything if the directory exists. See https://github.com/FrendsPlatform/Frends.Directory
         /// </summary>
         /// <returns>Object { string Path } </returns>
-        public static CreateResult Create([CustomDisplay(DisplayOption.Tab)] SharedInput input, [CustomDisplay(DisplayOption.Tab)] CreateOptions options)
+        public static CreateResult Create([PropertyTab] SharedInput input, [PropertyTab] CreateOptions options)
         {
             if (!options.UseGivenUserCredentialsForRemoteConnections)
             {
@@ -53,7 +47,7 @@ namespace Frends.Directory
         /// Moves a directory. By default will throw an error if the directory already exists. See https://github.com/FrendsPlatform/Frends.Directory
         /// </summary>
         /// <returns>Object { string TargetDirectory, string SourceDirectory }</returns>
-        public static MoveResult Move([CustomDisplay(DisplayOption.Tab)] MoveInput input, [CustomDisplay(DisplayOption.Tab)] MoveOptions options)
+        public static MoveResult Move([PropertyTab] MoveInput input, [PropertyTab] MoveOptions options)
         {
             if (!options.UseGivenUserCredentialsForRemoteConnections)
             {

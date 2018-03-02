@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using Frends.Tasks.Attributes;
+using System.ComponentModel.DataAnnotations;
 #pragma warning disable 1591
 
 namespace Frends.Directory
@@ -23,11 +23,11 @@ namespace Frends.Directory
         /// This needs to be of format domain\username
         /// </summary>
         [DefaultValue("\"domain\\username\"")]
-        [ConditionalDisplay(nameof(UseGivenUserCredentialsForRemoteConnections), true)]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
         public string UserName { get; set; }
 
         [PasswordPropertyText]
-        [ConditionalDisplay(nameof(UseGivenUserCredentialsForRemoteConnections), true)]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
         public string Password { get; set; }
     }
     public class DeleteOptions
@@ -48,11 +48,11 @@ namespace Frends.Directory
         /// This needs to be of format domain\username
         /// </summary>
         [DefaultValue("\"domain\\username\"")]
-        [ConditionalDisplay(nameof(UseGivenUserCredentialsForRemoteConnections), true)]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
         public string UserName { get; set; }
 
         [PasswordPropertyText]
-        [ConditionalDisplay(nameof(UseGivenUserCredentialsForRemoteConnections), true)]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
         public string Password { get; set; }
     }
 
@@ -88,11 +88,11 @@ namespace Frends.Directory
         /// This needs to be of format domain\username
         /// </summary>
         [DefaultValue("\"domain\\username\"")]
-        [ConditionalDisplay(nameof(UseGivenUserCredentialsForRemoteConnections), true)]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
         public string UserName { get; set; }
 
         [PasswordPropertyText]
-        [ConditionalDisplay(nameof(UseGivenUserCredentialsForRemoteConnections), true)]
+        [UIHint(nameof(UseGivenUserCredentialsForRemoteConnections), "", true)]
         public string Password { get; set; }
     }
 
