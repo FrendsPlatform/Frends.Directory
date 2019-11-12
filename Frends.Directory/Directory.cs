@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using SimpleImpersonation;
 #pragma warning disable 1591
 
@@ -19,10 +20,8 @@ namespace Frends.Directory
             }
 
             var domainAndUserName = GetDomainAndUserName(options.UserName);
-            using (Impersonation.LogonUser(domainAndUserName[0], domainAndUserName[1], options.Password, LogonType.NewCredentials))
-            {
-                return ExecuteDelete(input, options.DeleteRecursively);
-            }
+            return RunAsUser(domainAndUserName[0], domainAndUserName[1], options.Password, () => ExecuteDelete(input, options.DeleteRecursively));
+
         }
 
         /// <summary>
@@ -37,11 +36,22 @@ namespace Frends.Directory
             }
 
             var domainAndUserName = GetDomainAndUserName(options.UserName);
-            using (Impersonation.LogonUser(domainAndUserName[0], domainAndUserName[1], options.Password, LogonType.NewCredentials))
-            {
-                return ExecuteCreate(input);
-            }
+            return RunAsUser(domainAndUserName[0], domainAndUserName[1], options.Password, () => ExecuteCreate(input));
         }
+
+        private static T RunAsUser<T>(string domain, string username, string password, Func<T> action) where T : DirectoryResultBase
+        {
+#if !NET461
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                throw new Exception("Impersonation only supported on Windows systems");
+            }
+#endif
+            
+            return Impersonation.RunAsUser(new UserCredentials(domain, username, password),
+                LogonType.NewCredentials, action);
+        }
+
 
         /// <summary>
         /// Moves a directory. By default will throw an error if the directory already exists. See https://github.com/FrendsPlatform/Frends.Directory
@@ -55,10 +65,8 @@ namespace Frends.Directory
             }
 
             var domainAndUserName = GetDomainAndUserName(options.UserName);
-            using (Impersonation.LogonUser(domainAndUserName[0], domainAndUserName[1], options.Password, LogonType.NewCredentials))
-            {
-                return ExecuteMove(input, options.IfTargetDirectoryExists);
-            }
+            return RunAsUser(domainAndUserName[0], domainAndUserName[1], options.Password, () =>
+                    ExecuteMove(input, options.IfTargetDirectoryExists));
         }
 
         private static MoveResult ExecuteMove(MoveInput input, DirectoryExistsAction directoryExistsAction)
@@ -89,15 +97,15 @@ namespace Frends.Directory
 
         private static CreateResult ExecuteCreate(SharedInput input)
         {
-           var newFolder = System.IO.Directory.CreateDirectory(input.Directory);
-           return new CreateResult(newFolder.FullName);
+            var newFolder = System.IO.Directory.CreateDirectory(input.Directory);
+            return new CreateResult(newFolder.FullName);
         }
 
         private static DeleteResult ExecuteDelete(SharedInput input, bool optionsDeleteRecursivly)
         {
             if (!System.IO.Directory.Exists(input.Directory))
             {
-                return new DeleteResult("") {DirectoryNotFound = true};
+                return new DeleteResult("") { DirectoryNotFound = true };
             }
             System.IO.Directory.Delete(input.Directory, optionsDeleteRecursivly);
             return new DeleteResult(input.Directory);
