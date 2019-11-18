@@ -96,7 +96,12 @@ namespace Frends.Directory
         public string Password { get; set; }
     }
 
-    public class DeleteResult
+    public abstract class DirectoryResultBase
+    {
+
+    }
+
+    public class DeleteResult: DirectoryResultBase
     {
         public DeleteResult(string path)
         {
@@ -106,7 +111,7 @@ namespace Frends.Directory
         public bool DirectoryNotFound { get; set; }
     }
 
-    public class CreateResult
+    public class CreateResult: DirectoryResultBase
     {
         public CreateResult(string path)
         {
@@ -116,7 +121,7 @@ namespace Frends.Directory
         public string Path { get; set; }
     }
 
-    public class MoveResult
+    public class MoveResult: DirectoryResultBase
     {
         public MoveResult(string targetDirectory, string sourceDirectory)
         {
