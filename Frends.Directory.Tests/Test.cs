@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using NUnit.Framework;
+using Frends.Directory;
 
 namespace Frends.Directory.Tests
 {
